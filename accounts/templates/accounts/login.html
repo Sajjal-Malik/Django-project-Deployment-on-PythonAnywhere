@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    main {
+        margin-bottom: 40px;
+    }
+    p {
+        margin-top: 20px;
+    }
+</style>
+
+<h1>Account Log In</h1>
+    <form method="post">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    
+    <a href="{% url 'password_reset' %}">Forgot Password</a>
+
+    <p>Do Not have an Account?</p>
+    <a href="{% url 'accounts:register' %}">Register Here</a>
+{% endblock %}
